@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+</head>
+<body>
+<ul>
+    {% for m in menu %}
+    <li>
+        <a href="{% url 'menu' m.slug %}">{{m}}</a>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
