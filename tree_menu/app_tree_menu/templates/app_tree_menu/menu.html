@@ -1,0 +1,10 @@
+{% load tree_menu_tags %}
+
+<h3>{{menu_name}}</h3>
+    <ul>
+    {% for item, level in menu %}
+        <li>
+        {{ level|indent }} <a href="{% url 'menu' item.slug %}">{{item}}</a>
+        </li>
+    {% endfor %}
+    </ul>
