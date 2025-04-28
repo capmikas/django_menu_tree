@@ -5,7 +5,7 @@ from collections import defaultdict
 register = template.Library()
 
 @register.inclusion_tag('app_tree_menu/menu.html')
-def draw_menu(menu_name):
+def draw_menu(menu_name, item1=0):
     menu_items = MenuItem.objects.all().filter(menu_type__name=menu_name).order_by('name')
     children = defaultdict(list)
     # Строим словарь детей для каждого родителя
@@ -21,6 +21,10 @@ def draw_menu(menu_name):
             traverse(child.id, level + 1)
     # Начинаем обход с корневых элементов (parent_id=None)
     traverse(None, 0)
+    if item1:
+        print('item', item1.slug)
+    else:
+        print('0000')
     return {'menu': result, 'menu_name' : menu_name}
 
 
