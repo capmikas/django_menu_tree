@@ -9,7 +9,6 @@ class MenuItemAdmin(admin.ModelAdmin):
 
 admin.site.register(MenuItem, MenuItemAdmin)
 
-
 class MenuTypeAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
     list_display_links = ('id', 'name')
